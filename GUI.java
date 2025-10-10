@@ -1,54 +1,51 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-//import javax.swing.*;
-
-public class  GUI implements ActionListener{
+public class GUI implements ActionListener {
     
     private final JFrame frame;
-    private final JLabel label;
-    //private JPanel panel;
-    //private JTextField namField;
-    //private JTextField ageField;
-    private final ImageIcon image, headIcon;
-    //the User interface
+    private final JPanel APanel, BPanel;
+    private final ImageIcon image;
+
     public GUI() {
 
-        frame = new JFrame(); //creates the frame
-        //panel = new JPanel();
-        label = new JLabel(); //creates label
+        frame = new JFrame();
+        image = new ImageIcon("icon.png");
+        
+        APanel = new JPanel();
+        APanel.setBackground(Color.white); //color
+        APanel.setBounds(0, 0, 350, 800);
 
-        image = new ImageIcon("icon.png"); //setting up the icon dont judge it 
-        headIcon = new ImageIcon("headicon.png");
 
-        //label side 
-        label.setText("CONTACTS");
-        label.setIcon(headIcon);
-        label.setHorizontalTextPosition(JLabel.RIGHT);
-        label.setVerticalTextPosition(JLabel.TOP);
-        label.setFont(new Font("TImes New Roman", Font.PLAIN, 20)); // font bold size
-        label.setForeground(Color.WHITE);   
-        label.setBounds(0, 0, 250, 250);    
+        BPanel = new JPanel();
+        BPanel.setBackground(Color.BLACK); //color
+        BPanel.setBounds(350, 0, 10000, 1000);
 
-        //main frame
-        frame.getContentPane().setBackground(new Color(25, 25, 25)); // set background color to black
-        frame.setSize(1000, 700); // Defult window size 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Can Exit  
-        frame.setTitle("Contact System"); //The Program Titile
-        frame.setIconImage(image.getImage()); //The Program icon
-        frame.add(label);
-        frame.setVisible(true); //Make frames visible
-   
+        
+        frame.add(APanel);
+        frame.add(BPanel);
+        
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(new Color(25, 25, 25));
+        frame.setSize(1200, 750);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Contact System");
+        frame.setIconImage(image.getImage());
+        frame.setVisible(true);
     }  
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            
         throw new UnsupportedOperationException("Not supported yet.");
     }    
+
+    //public static void main(String[] args) {
+      //  new GUI();
+
+      
+    //}
 }
